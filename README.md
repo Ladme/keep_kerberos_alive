@@ -26,8 +26,10 @@ Example:
 ```bash
 #!/bin/bash
 
-qstat -fxw
-sleep 12000
+while true; do
+    qstat -fxw
+    sleep 12000
+done
 ```
 
 If you run this using `nohup ./long_running_script.sh &`, the script will run out of valid Kerberos tickets in <10 hours and fail.
@@ -56,8 +58,10 @@ Alternatively, convert your `long_running_script.sh` into a bash function and pu
 source ~/.bashrc
 
 long_running_task() {
-    qstat -fxw
-    sleep 12000
+    while true; do
+        qstat -fxw
+        sleep 12000
+    done
 }
 
 keep_kerberos_alive long_running_task
