@@ -28,7 +28,7 @@ WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
 
 # download the env.sh file
-info "Downloading the environment ${KKA_VERSION}..."
+info "Downloading Keep Kerberos Alive ${KKA_VERSION}..."
 curl -fsSL "$RELEASE_URL" -o "${WORK}/env.sh" \
     || die "Download failed from $RELEASE_URL"
 SRC_ENV="${WORK}/env.sh"
@@ -44,7 +44,7 @@ if grep -qF "$MARKER" "$BASHRC" 2>/dev/null; then
     info ".bashrc already sources the keep_kerberos_alive environment; skipping."
 else
     {
-        echo ""
+        echo "\n"
         echo "$MARKER"
         echo "# Set up by the keep_kerberos_alive installer; sources the kka functions."
         echo "[ -f \"\$HOME/keep_kerberos_alive/env.sh\" ] && source \"\$HOME/keep_kerberos_alive/env.sh\""
