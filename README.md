@@ -123,4 +123,4 @@ The `keep_kerberos_alive` function works by spawning a background process that p
 
 `resurrect_kerberos` is a simpler function that just generates a new Kerberos ticket from the keytab file and applies it to the current session.
 
-The installer also ensures that both functions are available in your shell by sourcing them from your `.bashrc` file. However, nohup runs and cron jobs start with a minimal environment that does not load `.bashrc` automatically - so if you plan to use either Keep Kerberos Alive function in those contexts, you will need to source `.bashrc` explicitly at the start of your script.
+The installer also ensures that both functions are available in your shell by sourcing them in your `.bashrc` file. However, nohup runs and cron jobs start with a minimal environment that does not load `.bashrc` automatically - so if you plan to use either Keep Kerberos Alive function in those contexts, you will need to source `.bashrc` explicitly at the start of your script.
