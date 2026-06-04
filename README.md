@@ -63,8 +63,9 @@ long_running_task() {
 keep_kerberos_alive long_running_task
 ```
 
-You can also `keep_kerberos_alive` to wrap a python script.
+You can also use `keep_kerberos_alive` to wrap a python script.
 
+*wrapper.sh*
 ```bash
 #!/bin/bash
 
@@ -72,6 +73,8 @@ source ~/.bashrc
 
 keep_kerberos_alive python3 long_running_script.py
 ```
+
+Again, run using `nohup ./wrapper.sh &`.
 
 ***
 
