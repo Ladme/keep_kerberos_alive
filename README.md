@@ -111,3 +111,16 @@ qstat -fxw
 # or creating a file on shared storage
 touch /storage/brno12-cerit/home/${USER}/some_file.txt
 ```
+
+## How does this work?
+
+As part of the installation process, a keytab is generated and saved to `~/keep_kerberos_alive/kka.keytab`. A keytab is a file that contains your Kerberos credentials and is used to authenticate with the Kerberos server. Simply put, it essentially contains your password in encrypted form, and can be provided in place of a password when generating a new Kerberos ticket.
+
+> [!WARNING]
+> Your keytab file is sensitive and should be kept secure. Do not share it with anyone, and do not move it from the location where it is placed after installation. Not only will Keep Kerberos Alive be unable to find it, but it may also become accessible to other users on the system.
+
+The `keep_kerberos_alive` function works by spawning a background process that periodically (every 3 hours) generates a new Kerberos ticket using the configured keytab. This continues until the process wrapped inside `keep_kerberos_alive` finishes or fails, at which point the background renewal process is automatically terminated. You don't need to worry about the newly generated tickets overwriting the Kerberos tickets in your main session - `keep_kerberos_alive` uses its own isolated Kerberos credentials cache.
+
+`resurrect_kerberos` is a simpler function that just generates a new Kerberos ticket from the keytab file and applies it to the current session.
+
+The installer also ensures that both functions are available in your shell by sourcing them from your `.bashrc` file. However, nohup runs and cron jobs start with a minimal environment that does not load `.bashrc` automatically - so if you plan to use either Keep Kerberos Alive function in those contexts, you will need to source `.bashrc` explicitly at the start of your script.
