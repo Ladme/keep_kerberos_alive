@@ -114,10 +114,10 @@ touch /storage/brno12-cerit/home/${USER}/some_file.txt
 
 ## How does this work?
 
-As part of the installation process, a keytab is generated and saved to `~/keep_kerberos_alive/kka.keytab`. A keytab is a file that contains your Kerberos credentials and is used to authenticate with the Kerberos server. Simply put, it essentially contains your password in encrypted form, and can be provided in place of a password when generating a new Kerberos ticket.
+As part of the installation process, a keytab is generated and saved to `~/keep_kerberos_alive/kka.keytab`. A keytab is a file that contains cryptographic keys derived from your password, which Kerberos uses to verify your identity without ever storing or transmitting the password itself. Consequently, it can be used to obtain a valid Kerberos ticket without needing to provide a password. You only need a password to *generate* the keytab, which is why you are prompted for it during the installation.
 
 > [!WARNING]
-> Your keytab file is sensitive and should be kept secure. Do not share it with anyone, and do not move it from the location where it is placed after installation. Not only will Keep Kerberos Alive be unable to find it, but it may also become accessible to other users on the system.
+> Your keytab file is sensitive and should be kept secure. Do not share it with anyone, and do not move it from the location where it is placed after installation. Not only will Keep Kerberos Alive be unable to find it, but it may also become accessible to other users on the system and abused.
 
 The `keep_kerberos_alive` function works by spawning a background process that periodically (every 3 hours) generates a new Kerberos ticket using the configured keytab. This continues until the process wrapped inside `keep_kerberos_alive` finishes or fails, at which point the background renewal process is automatically terminated. You don't need to worry about the newly generated tickets overwriting the Kerberos tickets in your main session - `keep_kerberos_alive` uses its own isolated Kerberos credentials cache.
 
