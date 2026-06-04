@@ -80,7 +80,7 @@ Again, run using `nohup ./wrapper.sh &`.
 
 ### `resurrect_kerberos`
 
-`resurrect_kerberos` uses a configured keytab to restore a Kerberos ticket in your current session without a password prompt.
+`resurrect_kerberos` restores a Kerberos ticket in your current session without a password prompt.
 
 This command is mostly intended to be used in cron jobs. 
 
