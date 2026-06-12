@@ -5,7 +5,7 @@ Get perpetual Kerberos ticket renewal on Metacentrum-family clusters. Only works
 ## Installation
 
 ```bash
-curl -fsSL https://github.com/Ladme/keep_kerberos_alive/releases/download/v0.1.0/install.sh | bash
+curl -fsSL https://github.com/Ladme/keep_kerberos_alive/releases/latest/download/install.sh | bash
 ```
 
 You will be prompted for your Kerberos password, twice. Provide the password you use to log in to your desktop. Then source your `.bashrc` file to finish the installation.

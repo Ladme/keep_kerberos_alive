@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Installation script for Keep Kerberos Alive
-# Version 0.1.0
+# Version 1.0.0
 # MIT License
 # Copyright (c) 2026 Ladislav Bartos
 

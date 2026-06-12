@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Utilities for obtaining perpetual Heimdal Kerberos tickets on Metacentrum-family clusters
-# Version 0.1.0
+# Version 1.0.0
 # MIT License
 # Copyright (c) 2026 Ladislav Bartos
 
