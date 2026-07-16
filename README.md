@@ -3,7 +3,7 @@
 Get perpetual Kerberos ticket renewal on Metacentrum-family clusters. Only works with Kerberos Heimdal.
 
 > [!warning]
-> This tool is written specifically for the needs of the RoVa Lab and intended to be used on Robox desktops. Using Keep Kerberos Alive on Metacentrum frontends is not only not recommended, but will in fact most likely not work since all processes running on a Metacentrum frontend for longer than 1-2 hours should be automatically killed.
+> This tool is written specifically for the needs of the [RoVa Lab](https://vacha.ceitec.cz/) and intended to be used on Robox desktops. Using Keep Kerberos Alive on Metacentrum frontends is not only *not* recommended, but will in fact most likely not work since all processes running on a Metacentrum frontend for longer than 1-2 hours are automatically killed.
 
 ## Installation
 
